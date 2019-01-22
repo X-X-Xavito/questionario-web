@@ -1,0 +1,10 @@
+{% if questionarios %}
+        <h1>Questionários</h1>
+        <ul>
+        {% for questionario in questionarios %}
+            <li><a href="{% url 'detail' questionario.id %}">{{ questionario.titulo }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}

@@ -7,7 +7,7 @@ from .models import Questionario, Pergunta, Alternativa
 def index(request):
     questionarios = Questionario.objects.all()
     context = {'questionarios': questionarios}
-    return render(request, 'questionario/index', context)
+    return render(request, 'questionario/index.html', context)
 
 def detail(request, questionario_id):
     return HttpResponse("You're looking at question %s." % questionario_id)
