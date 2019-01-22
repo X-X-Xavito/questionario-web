@@ -1,21 +1,29 @@
 {% extends 'questionario/base.html' %}
 
 {% block content %}
-
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
     <form action="{% url 'questionario:vote' questionario.id %}" method="post">
     {% csrf_token %}
     {% for pergunta in questionario.pergunta_set.all %}
-        <img src='{{pergunta.imagem.url}}'>
-        <h2>{{pergunta.texto}}</h2>
-            {% for alternativa in pergunta.alternativa_set.all %}
-                <input type="radio" name="{{pergunta.id}}" id="{{ pergunta.id }}" value="{{ alternativa.id }}" required>
-                <label for="{{ alternativa.id }}">{{ alternativa.texto}}</label><br>
-            {%endfor%}
-                <input type="hidden" name="pergunta" id="{{pergunta.id}}" value="{{pergunta.id}}">
+        <div class='container'>
+            <div class='imagem-pergunta img-thumbnail rounded float-left'> 
+                <img src='{{pergunta.imagem.url}}'>
+            </div>
+            <div class='texto-pergunta'>
+                <h2>{{pergunta.texto}}</h2>
+            </div>
+            <div class='texto-alternativa container1'>
+                {% for alternativa in pergunta.alternativa_set.all %}
+                    <input type="radio" name="{{pergunta.id}}" id="{{ pergunta.id }}" value="{{ alternativa.id }}" required>
+                    <label for="{{ alternativa.id }}">{{ alternativa.texto}}</label><br>
+                {%endfor%}
+                    <input type="hidden" name="pergunta" id="{{pergunta.id}}" value="{{pergunta.id}}">
+            </div>
+        </div><br><br>
     {% endfor %}
-    <input type="submit" value="Enviar">
+    <div class='div-botao-enviar'>
+        <input class='botao-enviar' type="submit" value="Enviar">
+    </div>
     </form>
-
 {%endblock%}

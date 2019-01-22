@@ -1,8 +1,14 @@
 {% extends 'questionario/base.html' %}
 
 {%block content%}
-    <h2>Pessoas que responderam o questionario:</h2>
-    <h3>{{ questionario.contador }}</h3>
+    <div class='container resultados-titulo'>    
+        <h1>Resultados<h1>
+    </div>
+
+    <div class='resultados-pessoa'>
+        <h2>Pessoas que responderam o questionario:</h2>
+        <h3>{{ questionario.contador }}</h3>
+    </div>
 
     {% for chave,valor in ganhadores.items %}
         <div class='container resultados'>

@@ -1,0 +1,50 @@
+.page-header{
+    background-color: #D3D3D3;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+
+.titulo-questionario, .resultados-titulo  {
+    color: #000000;
+    text-align: center;
+}
+
+body {
+    padding-left: 0px;
+}
+
+.imagem-pergunta{
+    float:left;
+}
+
+
+.texto-pergunta{
+    text-align: center;
+
+}
+
+.container1{
+    justify-content: center;
+    margin-left: 55%;   
+}
+
+.div-botao-enviar{
+    display: flex; 
+    justify-content: center;
+}
+
+.resultados-pessoa h2{
+    color: #000000;
+    font-weight: bold;
+}
+
+.resultados h2 {
+    color: #000000;
+    font-weight: bold;
+}
+
+
+.resultados h3{
+    color: #000000;
+}
