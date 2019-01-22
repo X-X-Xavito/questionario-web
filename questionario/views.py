@@ -18,7 +18,7 @@ def detail(request, questionario_id):
 def results(request, questionario_id):
     ganhadores={}
     questionario = Questionario.objects.get(pk=questionario_id)
-    #contador = Questionario.contador
+    contador = Questionario.contador
     perguntas = Pergunta.objects.filter(questionario=questionario.id)
     for pergunta in perguntas:
         alternativas = Alternativa.objects.filter(pergunta=pergunta.id)
@@ -30,6 +30,8 @@ def results(request, questionario_id):
 
 def vote(request, questionario_id):
     questionario = get_object_or_404(Questionario, pk=questionario_id)
+    questionario.contador+=1
+    questionario.save()
     #O for serve para iterar sobre cada pergunta recebido do POST.
     for pergunta_id in request.POST.getlist('pergunta'):
         try:

@@ -1,4 +1,9 @@
-<h1>{{ questionario.texto }}</h1>
+<h1>{{ questionario.titulo }}</h1>
+
+<h2>Pessoas que responderam o questionario:</h2>
+<h3>{{ questionario.contador }}</h3>
+
+
 
 {% for chave,valor in ganhadores.items %}
     <div class='container resultados'>
