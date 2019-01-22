@@ -6,6 +6,7 @@
 <form action="{% url 'questionario:vote' questionario.id %}" method="post">
 {% csrf_token %}
 {% for pergunta in questionario.pergunta_set.all %}
+    <img src='{{pergunta.imagem.url}}'>
     <h2>{{pergunta.texto}}</h2>
         {% for alternativa in pergunta.alternativa_set.all %}
             <input type="radio" name="{{pergunta.id}}" id="{{ pergunta.id }}" value="{{ alternativa.id }}" required>
