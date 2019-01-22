@@ -16,8 +16,16 @@ def detail(request, questionario_id):
     return render(request, 'questionario/detail.html', context)
 
 def results(request, questionario_id):
-    questionario = get_object_or_404(Questionario, pk=questionario_id)
-    context = {'questionario': questionario}
+    ganhadores={}
+    questionario = Questionario.objects.get(pk=questionario_id)
+    #contador = Questionario.contador
+    perguntas = Pergunta.objects.filter(questionario=questionario.id)
+    for pergunta in perguntas:
+        alternativas = Alternativa.objects.filter(pergunta=pergunta.id)
+        ganhador = alternativas.order_by('-votos').first()
+        ganhadores[pergunta] = ganhador
+    context = {'questionario': questionario,
+                'ganhadores': ganhadores, }
     return render(request, 'questionario/results.html', context)
 
 def vote(request, questionario_id):

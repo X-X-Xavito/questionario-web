@@ -1,12 +1,14 @@
 <h1>{{ questionario.texto }}</h1>
 
-<ul>
-{% for pergunta in questionario.pergunta_set.all %}
-    {{pergunta.texto}}
-    {%for alternativa in pergunta.alternativa_set.all%}
-        <li>{{ alternativa.texto }} -- {{ alternativa.votos }} voto{{ alternativa.votos|pluralize }}</li>
-    {%endfor%}
-{% endfor %}
-</ul>
+{% for chave,valor in ganhadores.items %}
+    <div class='container resultados'>
+        <h2>Pergunta:</h2>
+        <h3>{{chave.texto}}</h3>
+        <h2>Alternativa mais votada:</h2>
+        <h3>{{valor.texto}}</h3>
+        <h2>Votos da alternativa:</h2>
+        <h3>{{valor.votos}}</h3>
+    </div><br>
+{%endfor%}
 
 <a href="{% url 'questionario:detail' questionario.id %}">Votar de novo?</a>
