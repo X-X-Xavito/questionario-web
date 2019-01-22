@@ -16,8 +16,9 @@ def detail(request, questionario_id):
     return render(request, 'questionario/detail.html', context)
 
 def results(request, questionario_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % questionario_id)
+    questionario = get_object_or_404(Questionario, pk=questionario_id)
+    context = {'questionario': questionario}
+    return render(request, 'questionario/results.html', context)
 
 def vote(request, questionario_id):
     questionario = get_object_or_404(Questionario, pk=questionario_id)

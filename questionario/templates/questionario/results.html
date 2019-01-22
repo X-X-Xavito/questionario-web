@@ -1,0 +1,12 @@
+<h1>{{ questionario.texto }}</h1>
+
+<ul>
+{% for pergunta in questionario.pergunta_set.all %}
+    {{pergunta.texto}}
+    {%for alternativa in pergunta.alternativa_set.all%}
+        <li>{{ alternativa.texto }} -- {{ alternativa.votos }} voto{{ alternativa.votos|pluralize }}</li>
+    {%endfor%}
+{% endfor %}
+</ul>
+
+<a href="{% url 'questionario:detail' questionario.id %}">Votar de novo?</a>
