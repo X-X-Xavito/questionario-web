@@ -4,6 +4,7 @@ from django.db import models
 
 class Questionario(models.Model):
     titulo = models.CharField(max_length=200)
+    contador = models.IntegerField(default=0)
 
     def __str__(self):
         return self.titulo
