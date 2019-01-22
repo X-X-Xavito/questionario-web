@@ -1,7 +1,17 @@
 
 <h1>{{ questionario.titulo }}</h1>
-<ul>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'questionario:vote' questionario.id %}" method="post">
+{% csrf_token %}
 {% for pergunta in questionario.pergunta_set.all %}
-    <li>{{ pergunta.texto }}</li>
+    <h2>{{pergunta.texto}}</h2>
+        {% for alternativa in pergunta.alternativa_set.all %}
+            <input type="radio" name="{{pergunta.id}}" id="{{ pergunta.id }}" value="{{ alternativa.id }}" required>
+            <label for="{{ alternativa.id }}">{{ alternativa.texto}}</label><br>
+        {%endfor%}
+            <input type="hidden" name="pergunta" id="{{pergunta.id}}" value="{{pergunta.id}}">
 {% endfor %}
-</ul>
+<input type="submit" value="Enviar">
+</form>

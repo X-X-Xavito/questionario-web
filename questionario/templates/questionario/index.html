@@ -2,7 +2,7 @@
         <h1>Questionários</h1>
         <ul>
         {% for questionario in questionarios %}
-            <li><a href="{% url 'detail' questionario.id %}">{{ questionario.titulo }}</a></li>
+            <li><a href="{% url 'questionario:detail' questionario.id %}">{{ questionario.titulo }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
