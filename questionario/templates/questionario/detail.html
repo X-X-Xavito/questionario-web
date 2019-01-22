@@ -1,0 +1,7 @@
+
+<h1>{{ questionario.titulo }}</h1>
+<ul>
+{% for pergunta in questionario.pergunta_set.all %}
+    <li>{{ pergunta.texto }}</li>
+{% endfor %}
+</ul>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Questionario, Pergunta, Alternativa
@@ -10,7 +10,9 @@ def index(request):
     return render(request, 'questionario/index.html', context)
 
 def detail(request, questionario_id):
-    return HttpResponse("You're looking at question %s." % questionario_id)
+    questionario = get_object_or_404(Questionario, pk=questionario_id)
+    context = {'questionario': questionario}
+    return render(request, 'questionario/detail.html', context)
 
 def results(request, questionario_id):
     response = "You're looking at the results of question %s."
