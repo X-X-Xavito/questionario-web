@@ -1,4 +1,7 @@
-{% if questionarios %}
+{% extends 'questionario/base.html' %}
+
+{%block content%}
+    {% if questionarios %}
         <h1>Questionários</h1>
         <ul>
         {% for questionario in questionarios %}
@@ -6,5 +9,6 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>No polls are available.</p>
+        <p>Nenhum questionario disponível.</p>
     {% endif %}
+{%endblock%}

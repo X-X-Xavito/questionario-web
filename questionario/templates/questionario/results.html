@@ -1,19 +1,19 @@
-<h1>{{ questionario.titulo }}</h1>
+{% extends 'questionario/base.html' %}
 
-<h2>Pessoas que responderam o questionario:</h2>
-<h3>{{ questionario.contador }}</h3>
+{%block content%}
+    <h2>Pessoas que responderam o questionario:</h2>
+    <h3>{{ questionario.contador }}</h3>
 
+    {% for chave,valor in ganhadores.items %}
+        <div class='container resultados'>
+            <h2>Pergunta:</h2>
+            <h3>{{chave.texto}}</h3>
+            <h2>Alternativa mais votada:</h2>
+            <h3>{{valor.texto}}</h3>
+            <h2>Votos da alternativa:</h2>
+            <h3>{{valor.votos}}</h3>
+        </div><br>
+    {%endfor%}
 
-
-{% for chave,valor in ganhadores.items %}
-    <div class='container resultados'>
-        <h2>Pergunta:</h2>
-        <h3>{{chave.texto}}</h3>
-        <h2>Alternativa mais votada:</h2>
-        <h3>{{valor.texto}}</h3>
-        <h2>Votos da alternativa:</h2>
-        <h3>{{valor.votos}}</h3>
-    </div><br>
-{%endfor%}
-
-<a href="{% url 'questionario:detail' questionario.id %}">Votar de novo?</a>
+    <a href="{% url 'questionario:detail' questionario.id %}">Voltar para o questionario</a>
+{%endblock%}
