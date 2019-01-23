@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 """
     Criação de três modelos no banco de dados. Cada modelo tem atributo.
     Pergunta e Alternativa tem ForeignKey que define que esses modelos são atributos de outro modelo.
