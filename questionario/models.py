@@ -1,7 +1,7 @@
 from django.db import models
 
 """
-    Criação de três modelos no banco de dados. Cada modelo tem atributo.
+    Criação de três modelos no banco de dados.
     Pergunta e Alternativa tem ForeignKey que define que esses modelos são atributos de outro modelo.
     Metodo__str__ serve para exibir o objeto para o usuario
     ImagemField serve para definir um atributo com imagem, sendo que a imagem padrão é 'python.jpg'

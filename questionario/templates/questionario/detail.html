@@ -1,24 +1,23 @@
 {% extends 'questionario/base.html' %}
 
 <!-- 
-    {% extends 'questionario/base.html' %} como primeira linha para extender o código de base.html para este template.
-    O código deste template está dentro de block content para ser inserido dentro do base.html
+    Extende o base.html
 -->
 
 
 {% block content %}
 <!-- 
-    Caso alguma mensagem de erro(condição do Django em {% %}) do Django(codigo Django=dentro do { }) apareça, ela irá ficar em destaque. 
+    Caso alguma mensagem de erro do Django apareça, ela irá ficar em destaque. 
 -->
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <!-- 
-   Definindo um formulário no html, com o método POST(para atualizar dados no banco de dados) e que irá redirecionar para a view vote com o id do questionário.
+   Definindo um formulário no html, com o método POST e que irá redirecionar para a view vote com o id do questionário.
 -->
     <form action="{% url 'questionario:vote' questionario.id %}" method="post">
    
 <!-- 
-   Definindo um formulário no html, com o método POST(para atualizar dados no banco de dados) e que irá redirecionar para a view vote com o id do questionário.
+   Proteção do Django contra Cross Site Request Forgeries
 -->
     {% csrf_token %}
 <!-- 
@@ -46,4 +45,5 @@
         <input class='botao-enviar' type="submit" value="Enviar">
     </div>
     </form>
+    <a href="{% url 'questionario:index' %}">Voltar para a tela de questionarios</a>
 {%endblock%}

@@ -1,3 +1,8 @@
+"""
+    Importa métodos de objetos do Django
+    Importa as models dentro de models.py
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -6,16 +11,27 @@ from .models import Questionario, Pergunta, Alternativa
 
 
 def index(request):
+    """
+        Coleta todos os objetos Questionarios e retornar renderizados dentro de index.html
+    """
     questionarios = Questionario.objects.all()
     context = {'questionarios': questionarios}
     return render(request, 'questionario/index.html', context)
 
 def detail(request, questionario_id):
+    """
+        Coleta dentro dos objetos Questionario aquele com o questionario_id da URL. 
+        Caso tenha, retornar renderizado dentro do detail.html
+        Caso não tenha nenhum, exibir um erro 404.
+    """
     questionario = get_object_or_404(Questionario, pk=questionario_id)
     context = {'questionario': questionario}
     return render(request, 'questionario/detail.html', context)
 
 def results(request, questionario_id):
+    """
+        Exibe a alternativa mais votada dentro dentro de cada pergunta e renderizar dentro de results.html
+    """
     ganhadores={}
     questionario = get_object_or_404(Questionario, pk=questionario_id)
     perguntas = Pergunta.objects.filter(questionario=questionario.id)
@@ -28,10 +44,15 @@ def results(request, questionario_id):
     return render(request, 'questionario/results.html', context)
 
 def vote(request, questionario_id):
+    """
+        Recebe as informações do metodo POST do form em detail.html.
+        Passar essas informações para o banco de dados e salvá-las
+        A cada vez que o a função executar, irá adicionar ao atr contador do questionario.
+        A função irá redirecionar para results.html
+    """
     questionario = get_object_or_404(Questionario, pk=questionario_id)
     questionario.contador+=1
     questionario.save()
-    #O for serve para iterar sobre cada pergunta recebido do POST.
     for pergunta_id in request.POST.getlist('pergunta'):
         try:
             alternativa_id = ''
