@@ -1,3 +1,8 @@
+/*
+    Estilização dos elementos .html presentes no dir 'templates'. Seleção foi feita com '.', que é um seletor de classe dos elementos .html  
+    O 'body' não precisa de '.' pois ele é uma tag html em que não foi definida uma classe. 
+ */
+
 .page-header{
     background-color: #D3D3D3;
     margin-top: 0;

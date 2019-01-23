@@ -1,5 +1,13 @@
 {% extends 'questionario/base.html' %}
 
+<!-- 
+    {% extends 'questionario/base.html' %} como primeira linha para extender o código de base.html para este template.
+    O código deste template está dentro de block content para ser inserido dentro do base.html
+    {{questionario.contador}} irá trazer o atributo contador de questionario
+    O for é para iterar dentro do dicionario ganhadores, presente na view 'results' e para acessar a chave e o valor de cada item.
+    A tag <a> leva para o detail.html do questionario.id
+-->
+
 {%block content%}
     <div class='container resultados-titulo'>    
         <h1>Resultados<h1>

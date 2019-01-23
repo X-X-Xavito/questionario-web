@@ -1,4 +1,12 @@
 {% load static %}
+<!-- 
+    Arquivo html que irá servir de base para os demais templates, cujas informações irão aparecer dentro do bloco de conteúdo({%block content%})
+    Dentro da tag <head> foi importado o Bootstrap, framework para facilitar a estilização
+    Importado o arquivo questionario.css para sobrescrever a estilização do bootstrap dos elementos que estão no arquvivo.
+    'questionario.titulo' referenciado dentro de {} por ser uma variável Django
+    {% load static %} como primeira linha para importar os arquivos estáticos
+-->
+
 <html>
     <head>
         <title>{{ questionario.titulo }}</title>

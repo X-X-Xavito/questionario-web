@@ -1,5 +1,15 @@
 {% extends 'questionario/base.html' %}
 
+<!-- 
+    {% extends 'questionario/base.html' %} como primeira linha para extender o código de base.html para este template.
+    O código deste template está dentro de block content para ser inserido dentro do base.html
+    Caso tenha questionarios, a condição será executada. 
+    Para cada questionario dentro do objeto quesionario é gerado um link que leva ao detail.html, recebendo o id do questionario.
+    Caso não tenha, irá executar 'Nenhum questionario disponível'
+-->
+
+
+
 {%block content%}
     {% if questionarios %}
         <h1>Questionários</h1>
