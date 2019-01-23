@@ -15,13 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+#Importar static, que é uma funçãoo auxiliar para retornar um padrão de URL para arquivos estáticos e de media.
 from django.conf.urls.static import static
+#Importar settings para acessar as configuração do Django
 from django.conf import settings
 
+
+
 urlpatterns = [
+    #Incluido o path vazio para que o Django redirecionar as URLS recebidas para questionario.urls e procurar por instruções lá
     path('', include('questionario.urls')),
     path('admin/', admin.site.urls),
 ]
-
+"""
+    Inserção de movos elementos na lista 'urlpatterns', que irão indicar os padrões de URL dos arquivos estáticos e de 'medias'. 
+    O Django irá olhar para o arquivo settings e procurar pelas URLS do STATIC e MEDIA e depois procurar a raiz do documento no caminho definido em ROOT dentro de settings.py
+"""
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
