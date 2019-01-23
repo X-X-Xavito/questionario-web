@@ -17,8 +17,7 @@ def detail(request, questionario_id):
 
 def results(request, questionario_id):
     ganhadores={}
-    questionario = Questionario.objects.get(pk=questionario_id)
-    contador = Questionario.contador
+    questionario = get_object_or_404(Questionario, pk=questionario_id)
     perguntas = Pergunta.objects.filter(questionario=questionario.id)
     for pergunta in perguntas:
         alternativas = Alternativa.objects.filter(pergunta=pergunta.id)
@@ -42,16 +41,12 @@ def vote(request, questionario_id):
             pergunta = Pergunta.objects.get(pk=pergunta_id)
             alternativa_selecionada = Alternativa.objects.get(pk=alternativa_id)
         except (KeyError, Alternativa.DoesNotExist):
-            # Redisplay the question voting form.
             return render(request, 'questionario/detail.html', {
                 'questionario': questionario,
-                'error_message': "You didn't select a choice.",
+                'error_message': "Vocẽ não selecionou uma alternativa.",
             })
         else:
             alternativa_selecionada.votos += 1
             alternativa_selecionada.save()
-            # Always return an HttpResponseRedirect after successfully dealing
-            # with POST data. This prevents data from being posted twice if a
-            # user hits the Back button.
     return HttpResponseRedirect(reverse('questionario:results', args=(questionario.id,)))
 

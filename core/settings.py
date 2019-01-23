@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+#Inserção do django_extensions para utilização do shell_plus do ipython(shell com interface melhorada)
+#Inserção da app 'questionario' para que o Django possa reconhecer e utilizar
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -105,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
+#Alteração do idiomo do admin do Django para português do Brasil
 LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Sao_Paulo'
@@ -119,9 +122,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
+#Inclusão do caminho 'static' para os arquivos estaticos(ex. CSS)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+#URL que trata das 'medias' vindas de MEDIA_ROOT. Uma 'media' é como Django entende as imagens de uploads
 MEDIA_URL = '/img/'
+#inserção do caminho do diretorio que irá receber as imagens de uploads do admin do Django. Criada a pasta img dentro da pasta 'questionario'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'questionario', 'img')
