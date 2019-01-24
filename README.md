@@ -5,7 +5,7 @@ Questionário Web utilizando Django. Crie seu questionário com perguntas e alte
   - Tenha o controle de quantas pessoas responderam o seu questionário
   - Confira a alternativa mais votada para cada questão
   - Administre tudo numa plataforma fácil e intuitiva
-  
+  - 
 ### Instalação
 
 Para utilizar o Questionário, instale a versão mais nova do [Python](https://www.python.org/), do [Django](https://www.djangoproject.com/) e do [Git](https://git-scm.com/).
@@ -30,10 +30,19 @@ $ myvenv\Scripts\activate
 ```sh
 $ source myvenv/bin/activate
 ```
+### requirements.txt
+Acesse o diretório 'questionario-web/' e execute o comando abaixo para instalar todas as aplicações e libs do projeto:
+
+```sh
+(myvenv) ~$ pip install -r requirements.txt
+```
 
 ### Banco de Dados
 
-Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite o comando:
+Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite os comandos:
+```sh
+(myenv) $ python manage.py makemigrations questionario
+```
 ```sh
 (myenv) $ python manage.py migrate
 ```
@@ -48,4 +57,5 @@ Isso irá rodar o servidor na porta 8000. Para rodar em outra porta, como a 7000
 ```sh
 (myenv) $ python manage.py runserver 7000
 ```
+
 
