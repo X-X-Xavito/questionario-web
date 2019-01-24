@@ -18,7 +18,7 @@ def index(request):
     context = {'questionarios': questionarios}
     return render(request, 'questionario/index.html', context)
 
-def detail(request, questionario_id):
+def detalhes(request, questionario_id):
     """
         Coleta dentro dos objetos Questionario aquele com o questionario_id da URL. 
         Caso tenha, retornar renderizado dentro do detail.html
@@ -26,9 +26,9 @@ def detail(request, questionario_id):
     """
     questionario = get_object_or_404(Questionario, pk=questionario_id)
     context = {'questionario': questionario}
-    return render(request, 'questionario/detail.html', context)
+    return render(request, 'questionario/detalhes.html', context)
 
-def results(request, questionario_id):
+def resultados(request, questionario_id):
     """
         Exibe a alternativa mais votada dentro dentro de cada pergunta e renderizar dentro de results.html
     """
@@ -41,9 +41,9 @@ def results(request, questionario_id):
         ganhadores[pergunta] = ganhador
     context = {'questionario': questionario,
                 'ganhadores': ganhadores, }
-    return render(request, 'questionario/results.html', context)
+    return render(request, 'questionario/resultados.html', context)
 
-def vote(request, questionario_id):
+def votar(request, questionario_id):
     """
         Recebe as informações do metodo POST do form em detail.html.
         Passar essas informações para o banco de dados e salvá-las
@@ -62,12 +62,12 @@ def vote(request, questionario_id):
             pergunta = Pergunta.objects.get(pk=pergunta_id)
             alternativa_selecionada = Alternativa.objects.get(pk=alternativa_id)
         except (KeyError, Alternativa.DoesNotExist):
-            return render(request, 'questionario/detail.html', {
+            return render(request, 'questionario/detalhes.html', {
                 'questionario': questionario,
                 'error_message': "Vocẽ não selecionou uma alternativa.",
             })
         else:
             alternativa_selecionada.votos += 1
             alternativa_selecionada.save()
-    return HttpResponseRedirect(reverse('questionario:results', args=(questionario.id,)))
+    return HttpResponseRedirect(reverse('questionario:resultados', args=(questionario.id,)))
 

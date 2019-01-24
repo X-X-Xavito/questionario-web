@@ -14,7 +14,7 @@
 <!-- 
    Definindo um formulário no html, com o método POST e que irá redirecionar para a view vote com o id do questionário.
 -->
-    <form action="{% url 'questionario:vote' questionario.id %}" method="post">
+    <form action="{% url 'questionario:votar' questionario.id %}" method="post">
    
 <!-- 
    Proteção do Django contra Cross Site Request Forgeries

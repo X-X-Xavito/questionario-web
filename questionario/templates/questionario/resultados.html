@@ -4,7 +4,7 @@
     Extende o base.html
     Exibe o contador do questionário(quantas pessoas votaram)
     Exibe o valor e chave do dicionario ganhadores
-    A tag <a> leva para o detail.html do questionario.id
+    A tag <a> leva para o detalhes.html do questionario.id
 -->
 
 {%block content%}
@@ -28,5 +28,5 @@
         </div><br>
     {%endfor%}
 
-    <a href="{% url 'questionario:detail' questionario.id %}">Voltar para o questionario</a>
+    <a href="{% url 'questionario:detalhes' questionario.id %}">Voltar para o questionario</a>
 {%endblock%}

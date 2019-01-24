@@ -3,7 +3,7 @@
 <!-- 
     Extende o base.html
     Caso tenha questionarios, a condição será executada. 
-    Para cada questionario dentro do objeto quesionario é gerado um link que leva ao detail.html, recebendo o id do questionario.
+    Para cada questionario dentro do objeto quesionario é gerado um link que leva ao detalhes.html, recebendo o id do questionario.
     Caso não tenha, irá executar 'Nenhum questionario disponível'
 -->
 
@@ -14,7 +14,7 @@
         <h1>Questionários</h1>
         <ul>
         {% for questionario in questionarios %}
-            <li><a href="{% url 'questionario:detail' questionario.id %}">{{ questionario.titulo }}</a></li>
+            <li><a href="{% url 'questionario:detalhes' questionario.id %}">{{ questionario.titulo }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
