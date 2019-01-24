@@ -5,7 +5,7 @@ Questionário Web utilizando Django. Crie seu questionário com perguntas e alte
   - Tenha o controle de quantas pessoas responderam o seu questionário
   - Confira a alternativa mais votada para cada questão
   - Administre tudo numa plataforma fácil e intuitiva
-  - 
+  
 ### Instalação
 
 Para utilizar o Questionário, instale a versão mais nova do [Python](https://www.python.org/), do [Django](https://www.djangoproject.com/) e do [Git](https://git-scm.com/).
