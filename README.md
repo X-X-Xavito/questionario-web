@@ -33,10 +33,7 @@ $ source myvenv/bin/activate
 
 ### Banco de Dados
 
-Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite os comandos:
-```sh
-(myenv) $ python manage.py makemigrations questionario
-```
+Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite o comando:
 ```sh
 (myenv) $ python manage.py migrate
 ```
