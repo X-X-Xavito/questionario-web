@@ -1,14 +1,14 @@
 # Questionario-Web
 
-Questionário Web utilizando Django. Crie seu questionário com perguntas e alternativas e:
+Questionário Web utilizando [Django](https://www.djangoproject.com/). Crie seu questionário com perguntas e alternativas e:
 
   - Tenha o controle de quantas pessoas responderam o seu questionário
   - Confira a alternativa mais votada para cada questão
   - Administre tudo numa plataforma fácil e intuitiva
-
+  - 
 ### Instalação
 
-Para utilizar o Questionário, instale a versão mais nova do [Python](https://www.python.org/), do [Django](https://www.djangoproject.com/) e do [Git](https://git-scm.com/).
+Para utilizar o Questionário, instale a versão mais nova do [Python](https://www.python.org/), do [Git](https://git-scm.com/).
 
 Crie um diretório para o seu projeto em seu computador, acesse-o e execute o comando git clone para fazer uma cópia remota do projeto
 
@@ -40,10 +40,7 @@ Acesse o diretório 'questionario-web/' e execute o comando abaixo para instalar
 
 ### Banco de Dados
 
-Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite os comandos:
-```sh
-(myenv) $ python manage.py makemigrations questionario
-```
+Inicialize o banco de dados, acessando o diretorio 'questionario-web' via terminal e digite o comando:
 ```sh
 (myenv) $ python manage.py migrate
 ```
@@ -64,9 +61,9 @@ Com o servidor rodando, acesse o diretorio 'questionario-web' em outro terminal 
 ```sh
 (myenv) $ python manage.py createsuperuser
 ```
-e crie seu usuario e 
-
+e crie seu usuario e senha. Esses dados serão utilizados para acesso ao Admin do Django.
 ### Acessando o Admin do Django
-Com o superusuario criado, acesse o [admin](http://127.0.0.1:8000/admin/) em seu navegador. Digite o usuario e senha criados para ter acesso ao painel do Admin do Django.
+Com o superusuario criado, acesse o http://127.0.0.1:8000/admin/ em seu navegador. Caso tenha executado o servidor na porta 7000, por exemplo, digite http://127.0.0.1:7000/admin/
+Digite o usuario e senha criados para ter acesso ao painel do Admin do Django.
 
 ### Utilizando o painel do Django
