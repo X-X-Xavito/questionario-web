@@ -62,7 +62,6 @@ Com o servidor rodando, acesse o diretorio 'questionario-web' em outro terminal 
 (myenv) $ python manage.py createsuperuser
 ```
 e crie seu usuario e senha. Esses dados serão utilizados para acesso ao Admin do Django.
-
 ### Acessando o Admin do Django
 Com o superusuario criado, acesse o http://127.0.0.1:8000/admin/ em seu navegador. Caso tenha executado o servidor na porta 7000, por exemplo, digite http://127.0.0.1:7000/admin/
 Digite o usuario e senha criados para ter acesso ao painel do Admin do Django.
@@ -88,3 +87,6 @@ No painel do Django:
 2. Selecione o questionario desejado
 3. Selecione uma alternativa para cada pergunta e ao final, clique em 'Enviar'
 4. Visualize os resultados na tela seguinte
+
+### Referências
+Esse projeto foi basedo no [tutorial do Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) e no [tutorial da Django Girls](https://tutorial.djangogirls.org/pt/)
